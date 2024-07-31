@@ -1,0 +1,9 @@
+version: v1
+breaking:
+  use:
+    - FILE
+deps:
+  - buf.build/kratos/apis
+lint:
+  use:
+    - DEFAULT

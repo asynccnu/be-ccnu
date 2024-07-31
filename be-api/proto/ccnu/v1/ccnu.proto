@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package ccnu.v1;
+option go_package="github.com/MuxiKeStack/be-api/gen/proto/ccnu/v1;ccnuv1";
+
+service CCNUService {
+  rpc Login(LoginRequest)returns(LoginResponse);
+  rpc CourseList(CourseListRequest)returns(CourseListResponse);
+  rpc GetAllGrades (GetAllGradesRequest) returns (GetAllGradesResponse);
+  rpc GetGrades (GetGradesRequest) returns (GetGradesResponse);
+}
+
+message LoginRequest {
+  string student_id = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  bool success = 1;
+}
+
+message CourseListRequest {
+  string student_id = 1;
+  string password = 2;
+  string year = 3;
+  string term = 4;
+  Source source = 5;
+}
+
+enum Source{
+  GradeApi = 0; // 来源于成绩查询接口，这里的信息很准确
+  OldXkApi = 1; // 来源于老的教务系统接口，这里有的课程信息是不全的
+}
+
+// 这个course只是爬出来没怎么处理的，在course服务里会处理
+message Course {
+  string course_code = 1;
+  string name = 2;
+  string teacher = 3;
+  string class = 4;
+  string school = 5;
+  string property = 6;  // 课程性质
+  double credit = 7;
+  string year = 8;
+  string term = 9;
+}
+
+message CourseListResponse {
+  repeated Course courses = 1;
+}
+
+message GetAllGradesRequest {
+  string student_id = 1;
+  string password = 2;
+}
+
+message Grade {
+  string course_code = 1;
+  string course_name = 2;
+  string course_teacher = 3;
+  double regular = 4; // 平时
+  double final = 5;   // 期末
+  double total = 6;   // 总评
+  string year = 7;
+  string term = 8;
+}
+
+message GetAllGradesResponse {
+  repeated Grade grades = 1;
+}
+
+message GetGradesRequest {
+  string student_id = 1;
+  string password = 2;
+  string year = 3;
+  string term = 4;
+}
+
+message GetGradesResponse {
+  repeated Grade grades = 1;
+}

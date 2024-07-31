@@ -1,0 +1,60 @@
+http:
+  addr: ":8088"
+
+redis:
+  addr: "localhost:6379"
+
+etcd:
+  endpoints:
+    - "localhost:12379"
+
+kafka:
+  addrs:
+    - "localhost:9094"
+
+administrators:
+  - "2022214214"
+
+grpc:
+  client:
+    ccnu:
+      endpoint: "discovery:///ccnu"
+      retryCnt: 3    # 具备重试装饰时的重试次数
+    user:
+      endpoint: "discovery:///user"
+    course:
+      endpoint: "discovery:///course"
+    evaluation:
+      endpoint: "discovery:///evaluation"
+    question:
+      endpoint: "discovery:///question"
+    tag:
+      endpoint: "discovery:///tag"
+    comment:
+      endpoint: "discovery:///comment"
+    stance:
+      endpoint: "discovery:///stance"
+    collect:
+      endpoint: "discovery:///collect"
+    search:
+      endpoint: "discovery:///search"
+    grade:
+      endpoint: "discovery:///grade"
+    static:
+      endpoint: "discovery:///static"
+    answer:
+      endpoint: "discovery:///answer"
+    point:
+      endpoint: "discovery:///point"
+    feed:
+      endpoint: "discovery:///feed"
+
+jwt:
+  jwtKey: "mc8QAegcrdOmGwQthrx3cgd2hd8CVfaH"
+  refreshKey: "Hx9g8TinCH30NqckgKfFO2KkbaeCUMmj"
+
+oss:
+  accessKey:
+  secretKey:
+  bucketName: kestack
+  domainName: kestackoss.muxixyz.com # CDN 域名
