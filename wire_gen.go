@@ -7,10 +7,10 @@
 package main
 
 import (
-	"github.com/MuxiKeStack/be-ccnu/grpc"
-	"github.com/MuxiKeStack/be-ccnu/ioc"
-	"github.com/MuxiKeStack/be-ccnu/pkg/grpcx"
-	"github.com/MuxiKeStack/be-ccnu/service"
+	"github.com/asynccnu/be-ccnu/grpc"
+	"github.com/asynccnu/be-ccnu/ioc"
+	"github.com/asynccnu/be-ccnu/pkg/grpcx"
+	"github.com/asynccnu/be-ccnu/service"
 )
 
 // Injectors from wire.go:
