@@ -26,6 +26,10 @@ func (s *CCNUServiceServer) Login(ctx context.Context, request *ccnuv1.LoginRequ
 	success, err := s.ccnu.Login(ctx, request.GetStudentId(), request.GetPassword())
 	return &ccnuv1.LoginResponse{Success: success}, err
 }
+func (s *CCNUServiceServer) GetCCNUCookie(ctx context.Context, request *ccnuv1.GetCCNUCookieRequest) (*ccnuv1.GetCCNUCookieResponse, error) {
+	cookie, err := s.ccnu.GetCCNUCookie(ctx, request.GetStudentId(), request.GetPassword())
+	return &ccnuv1.GetCCNUCookieResponse{Cookie: cookie}, err
+}
 
 func (s *CCNUServiceServer) CourseList(ctx context.Context, request *ccnuv1.CourseListRequest) (*ccnuv1.CourseListResponse, error) {
 	var courseVos []*ccnuv1.Course

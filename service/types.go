@@ -14,6 +14,7 @@ type CCNUService interface {
 	GetSelfGradeList(ctx context.Context, studentId, password, year, term string) ([]domain.Grade, error)
 	// GetAllDetailOfGrade 获取所有成绩的所有细节
 	GetDetailOfGradeList(ctx context.Context, studentId string, password string, year string, term string) ([]domain.Grade, error)
+	GetCCNUCookie(ctx context.Context, studentId string, password string) (string, error)
 }
 
 type ccnuService struct {
