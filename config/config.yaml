@@ -1,0 +1,12 @@
+etcd:
+  endpoints:
+    - "localhost:2379"
+  username: root
+  password: "muxistudio304"
+
+grpc:
+  server:
+    name: "ccnu"
+    weight: 100
+    addr: ":19092"
+    etcdTTL: 60
